@@ -4,6 +4,16 @@ on:
     branches:
       - master
 jobs:
+  run_dock:
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.10.4
+          architecture: 'x64'
+      - name: Docker compose
+        run: docker-compose up
   run_tests:
     runs-on: [ubuntu-latest]
     steps:
@@ -16,16 +26,7 @@ jobs:
         run: pip install -r requirements.txt
       - name: Test
         run: python postgres.py
-  run_dock:
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-python@v1
-        with:
-          python-version: 3.10.4
-          architecture: 'x64'
-      - name: Docker compose
-        run: docker-compose up
+
   build_and_pub:
     needs: [run_tests]
     runs-on: [ubuntu-latest]

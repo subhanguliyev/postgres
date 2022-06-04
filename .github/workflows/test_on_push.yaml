@@ -14,5 +14,5 @@ jobs:
           architecture: 'x64'
       - name: Install requirements
         run: pip install -r requirements.txt
-      - name: Test
-        run: python postgres.py
+      - name: Docker compose
+        run: docker-compose up

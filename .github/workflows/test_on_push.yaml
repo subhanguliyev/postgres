@@ -16,3 +16,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Tests
         run: python postgres.py
+      - name: Docker compose
+        run: docker-compose up

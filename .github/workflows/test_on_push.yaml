@@ -4,13 +4,6 @@ on:
     branches:
       - master
 jobs:
-  docker_comp:
-    runs-on: [ ubuntu-latest ]
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-python@v1
-      - name: Docker compose
-        run: docker-compose up
   run_tests:
     runs-on: [ubuntu-latest]
     steps:

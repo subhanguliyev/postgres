@@ -1,7 +1,7 @@
 import psycopg2
 
 # information from pg properties
-conn = psycopg2.connect(dbname='persons', user='postgres', password='password', host='5432')
+conn = psycopg2.connect(dbname='persons', user='postgres', password='password', host='localhost')
 
 cur = conn.cursor()
 # creating DB, table, columns
